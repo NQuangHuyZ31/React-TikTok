@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import Content from './Content';
 import {
   useState,
   useEffect,
@@ -10,17 +9,33 @@ import {
   
 } from 'react';
 
+//random gift
+const course = [
+  {
+    id:1,
+    name:'Javacript'
+  },
+  {
+    id:2,
+    name:'HTML,CSS'
+  },
+  {
+    id:3,
+    name:'ReactJS'
+  }
+  
+]
+
 
 function App() {
+const [show,setShow] = useState(false)
+
   
-    const [state, setState] = useState(1)
-    const handleIncrease = ()=>{
-      setState(preState => preState +1)
-    }
+
   return (
     <div className="App" style={{padding:20}}>
-      <h1>{state}</h1>
-      <button onClick = {handleIncrease}>Increase</button>
+      <button onClick={()=>setShow(!show)}>Show</button>
+      {show && <Content/>}
     </div>
   );
 }
