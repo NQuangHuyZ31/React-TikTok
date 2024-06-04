@@ -9,7 +9,7 @@ import {
 } from 'react';
 import {setJob,addJob,deleteJob} from './action'
 import Reducer,{initState} from './reducer'
-
+import Logger from './logger';
 // useReducer
 // 1. init state :0
 // 2. Action: state -1, state +1
@@ -21,10 +21,10 @@ import Reducer,{initState} from './reducer'
 function TodoApp() {
   // Dispatch
   const inputRef = useRef()
-  const [state, dispatch] = useReducer(Reducer,initState)
+  const [state, dispatch] = useReducer(Logger(Reducer),initState)
   
   const {job,jobs} = state
-  console.log(state)
+
   const hanndleSubmit = ()=>{
     dispatch(addJob(job))
     dispatch(setJob(''))
