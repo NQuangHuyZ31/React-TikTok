@@ -1,7 +1,11 @@
-import { useEffect,useState, useLayoutEffect } from "react";
-/////////////////
+import { useEffect,useState, useLayoutEffect,
+  useRef, useMemo,
+  memo
+ } from "react";
+ import App from "./App";
+/////////////////Trình tự thực hiện
 // useEffect
-// 1. cập nhtaaj lại state
+// 1. cập nhật lại state
 // 2. Cập nhật DOM (mutated)
 // 3. Render lại UI
 // 4. Gọi clearup nếu deps thay đổi
@@ -14,29 +18,15 @@ import { useEffect,useState, useLayoutEffect } from "react";
 // 3. Gọi lại clearup nếu deps thay đổi (sync)
 // 4. Gọi useLayoutEffect callback (sync)
 // 5. Render lại UI
-const Content = ()=>{
-  const [count,setCount] = useState(0)
-  const handleCount = ()=>{
-    setCount(count +1)
-  }
-
-  useEffect(()=>{
-    if(count > 3 ){
-      setCount(0)
-    }
-  },[count])
-
+const Content = ({onIncrease})=>{
+  console.log('re-render')
   return (
-    <div>
-      <h1>{count}</h1>
-      <button 
-        onClick={handleCount}
-      >
-        Run
-      </button>
+    <>
+      <h1>hello</h1>
+      <button onClick={onIncrease}>Click me</button>
+    </>
       
-    </div>
   )
 }
 
-export default Content;
+export default memo(Content);
