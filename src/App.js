@@ -1,10 +1,10 @@
 import React from 'react';
 import {Fragment} from'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { publicRouters } from './routers';
-import { DefaultLayout } from './components/Layout';
+import { publicRouters } from '~/routers';
+import { DefaultLayout } from '~/components/Layout';
 
 function App() {
   return (

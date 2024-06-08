@@ -1,0 +1,89 @@
+.wrapper {
+  --search-border-radius: 92px;
+  --search-height: 46px;
+  --search-height-spacer: 10px;
+  --search-button-width:52px;
+  width: 100%;
+  height: var(--default-layout-header-height);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px;
+  display: flex;
+  justify-content: center;
+  padding-right: 24px;
+  padding-left: 16px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  height: 100%;
+  width: var(--default-layout-header-width);
+}
+
+
+.search {
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  border-radius: var(--search-border-radius);
+  height: var(--search-height);
+  background-color: #eee;
+  position: relative;
+  min-width: 200px;
+  width: 516px;
+  border: 1px solid transparent;
+
+  input {
+    flex: 1;
+    height: 100%;
+    color: var(--black);
+    font-size: 1.6rem;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    caret-color: red;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: var(--search-height-spacer);
+    right: var(--search-button-width);
+    width: 1px;
+    height: calc(var(--search-height) - var(--search-height-spacer) * 2);
+    background: rgba(22, 24, 35, 0.12);
+  }
+
+  &:focus-within {
+    border-color: rgba(22, 24, 35, 0.2);
+  }
+}
+
+input:not(:placeholder-shown) ~ .search-btn{
+  color: black;
+}
+.clear, .loading {
+  position: absolute;
+  right: calc(var(--search-button-width) + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(22, 24, 35, 0.34);
+}
+
+.search-btn {
+  color: rgba(22, 24, 35, 0.34);
+  // opacity: 0.5;
+  border-top-right-radius: var(--search-border-radius);
+  border-bottom-right-radius: var(--search-border-radius);
+  font-size: 1.8rem;
+  padding: 12px 16px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(222, 219, 219, 0.5);
+    // opacity: 1;
+  }
+  &:active{
+    background-color: rgba(22, 24, 35, 0.06);
+  }
+}
