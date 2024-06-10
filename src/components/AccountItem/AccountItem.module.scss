@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 9px 16px;
+  cursor: pointer;
+
+  &:hover{
+    background: rgba(22,24,35,0.03);
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding-right: 12px;
+  padding-left: 8px;
+  overflow: hidden;
+}
+
+.check-icon{
+  margin-left: 4px ;
+  font-size: 14px;
+  color: rgba(37, 244, 238, 1);;
+}
+
+.username{
+  padding-right: 12px;
+  padding-left: 8px;
+  font-size: 1.4rem;
+
+}
